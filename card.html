@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body {
+            background: #000;
+        }
+
+        #cardImg {
+            width: 100%;
+
+        }
+
+        #cardBody {
+            width: 300px;
+            margin-top: 10px;
+            margin-left: 1px;
+        }
+
+        #myCard {
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body class="bg-success">
+    <h1 class="text-center text-dark bg-info p-1">Veggie shop</h1>
+    <div class="d-flex flex-column align-items-center justify-content-center p-2">
+        <input class="border rounded rounded-5" id="search" type="text" placeholder="Search...">
+        <p id="noResult" style="display: none;">no result</p>
+    </div>
+    <div class="d-flex justify-content-around p-2" id="myCard">
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/broccoli.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Broccoli</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/cabbage.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Cabbage</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/carrot.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Carrot</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/orange.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Orange</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning m-" id="cardBody">
+            <img src="./img/onion.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Onion</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/Tomato_je.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Tomato</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/redroot.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Redroot</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/eggplant.jpg" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Egg plant</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+        <div class="border p-1 bg-warning" id="cardBody">
+            <img src="./img/bitter cucumber.webp" alt="" id="cardImg">
+            <p class="text-center" id="cardText">Egg plant</p>
+            <div class="d-flex justify-content-between text-center">
+                <p>5$</p>
+                <button class="btn btn-danger">Add to cart</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const myCard = document.getElementById("myCard");
+        const search = document.getElementById("search");
+        const noResult = document.getElementById("noResult");
+
+        search.addEventListener("keyup", function () {
+            const query = search.value.trim().toLowerCase(); // Trim whitespace and make query lowercase
+            let found = false;
+
+            for (let child of myCard.children) {
+                const cardText = child.querySelector(".text-center").innerText.toLowerCase(); // Use a class selector instead of ID
+                if (cardText.includes(query)) {
+                    child.style.display = "block";
+                    found = true;
+                } else {
+                    child.style.display = "none";
+                }
+            }
+
+            // Show or hide "no result" message based on found status
+            if (found) {
+                noResult.style.display = "none";
+            } else {
+                noResult.style.display = "block";
+            }
+        });
+
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
